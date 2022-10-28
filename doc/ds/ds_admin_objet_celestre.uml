@@ -4,39 +4,39 @@ Administrateur -> Système : Demande de modification d'un objet célestre
 Système -> Administrateur : Affiche le formulaire de modification d'un objet célestre
 Administrateur -> Système : Envoie formulaire modification
 Système -> Système : Validation du formulaire
-alt Erreurs
+alt Formulaire invalide
 Système -> Administrateur : Affiche une validation de modification
-else Pas d'erreurs
+else
 Système -> Système : Enregistrement des modifications
-alt Pas d'erreurs
-Système -> Administrateur : Affiche une validation de modification
-else Erreurs
-Système -> Administrateur : Affiche les erreurs
+alt Erreurs de sauvegarde
+Système -> Administrateur : Affichage des erreurs
+else
+Système -> Administrateur : Affichage validation de la modification
 end
 end
 else
 alt Ajout d'un objet célestre
-Administrateur -> Système : Demande d'ajour d'un objet célestre
+Administrateur -> Système : Demande d'ajout d'un objet célestre
 Système -> Administrateur : Affiche le formulaire de création d'un objet célestre
 Administrateur -> Système : Envoie du formulaire de création
 Système -> Système : Validation du formulaire
-alt Erreurs
-Système -> Administrateur : Affiche une validation de modification
-else Pas d'erreurs
+alt Formulaire invalide
+Système -> Administrateur : Affichage des erreurs
+else
 Système -> Système : Enregistrement de l'object célestre
-alt Pas d'erreurs
-Système -> Administrateur : Affiche une validation de l'ajout de l'object célestre
-else Erreurs
-Système -> Administrateur : Affiche les erreurs
+alt Erreurs de sauvegarde 
+Système -> Administrateur : Affichage des erreurs
+else 
+Système -> Administrateur : Affichage validation d'ajout de l'objet céleste
 end
 end
 else Supprimer un objet célestre
 Administrateur -> Système : Demande de supression d'un objet célestre
 Système -> Système : Supression de l'objet célestre
-alt Erreurs
-Système -> Administrateur : Affiche les erreurs
+alt Erreurs de suppression
+Système -> Administrateur : Affichage des erreurs
 else
-Système -> Administrateur : Affiche une validation de suppression de l'object
+Système -> Administrateur : Affichage validation de suppression de l'objet céleste
 end
 end
 end
