@@ -6,11 +6,11 @@ Administrateur -> Système : Envoie formulaire modification
 Système -> Système : Validation du formulaire
 alt Formulaire invalide
 Système -> Administrateur : Affiche une validation de modification
-else
+else Formulaire valide
 Système -> Système : Enregistrement des modifications
 alt Erreurs de sauvegarde
 Système -> Administrateur : Affichage des erreurs
-else
+else Pas d'erreurs de sauvegarde
 Système -> Administrateur : Affichage validation de la modification
 end
 end
@@ -22,11 +22,11 @@ Administrateur -> Système : Envoie du formulaire de création
 Système -> Système : Validation du formulaire
 alt Formulaire invalide
 Système -> Administrateur : Affichage des erreurs
-else
+else Formulaire valide
 Système -> Système : Enregistrement de l'object célestre
 alt Erreurs de sauvegarde 
 Système -> Administrateur : Affichage des erreurs
-else 
+else Pas d'erreurs de sauvegarde
 Système -> Administrateur : Affichage validation d'ajout de l'objet céleste
 end
 end
@@ -35,7 +35,7 @@ Administrateur -> Système : Demande de supression d'un objet célestre
 Système -> Système : Supression de l'objet célestre
 alt Erreurs de suppression
 Système -> Administrateur : Affichage des erreurs
-else
+else Pas d'erreurs de suppression
 Système -> Administrateur : Affichage validation de suppression de l'objet céleste
 end
 end

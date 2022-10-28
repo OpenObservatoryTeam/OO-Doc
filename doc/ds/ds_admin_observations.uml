@@ -6,11 +6,11 @@ alt Modification d'une observaation
     Système -> Système : Validation du formulaire
     alt Formulaire invalide
         Système -> Administrateur : Affichage des erreurs
-    else 
+    else Formulaire valide
         Système -> Système : Enregistrement des modifications
         alt Erreurs de sauvegarde
            Système -> Administrateur : Affichage des erreurs
-        else 
+        else Pas d'erreurs de sauvegarde
            Système -> Administrateur : Affiche une validation de modification 
         end
     end
@@ -19,7 +19,7 @@ else Supprimer une observation
          Système -> Système : Supression de l'objet célestre
          alt Erreurs de suppression 
              Système -> Administrateur : Affichage des erreurs 
-         else 
+         else Pas d'erreurs de suppresion
              Système -> Administrateur : Affichage validation de suppression de l'observation 
         end
 end
