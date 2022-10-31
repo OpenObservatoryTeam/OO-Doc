@@ -19,7 +19,7 @@ jobs:
       - name: Generate PNG Diagrams
         uses: holowinski/plantuml-github-action@main
         with:
-          args: -v -tpng -o "doc/" "doc/src/*.puml"
+          args: -v -tpng -o $github_workspace/doc/ doc/src/*.puml
 
       - name: Push Local Changes
         uses: stefanzweifel/git-auto-commit-action@v4.1.2
