@@ -1,14 +1,29 @@
-name: Draw diagrams
-on: push
+name: Generate PlantUML Diagrams
+on:
+  push:
+    paths:
+      - "**.puml"
 
 jobs:
-  diagrams:
-    name: Draw diagrams
+  plantuml:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      - name: Process diagrams
-        uses: Timmy/plantuml-action@v1
+      - name: Checkout Source
+        uses: actions/checkout@v3
+
+      # Donne l'erreur "HEAD^ est une revision invalide"
+      #- name: Get changed UML files
+      #  id: getfile
+      #  run: |
+      #    echo "files=$(git diff --name-only HEAD^ HEAD | grep .puml | xargs)" >> $GITHUB_OUTPUT
+
+      - name: Generate PNG Diagrams
+        uses: holowinski/plantuml-github-action@main
         with:
-          args: '-png doc/src/*.puml doc/'
+          args: -v -tpng -o /github/workspace/doc/ doc/src/*.puml
+
+      - name: Push Local Changes
+        uses: stefanzweifel/git-auto-commit-action@v4.15.3
+        with:
+          commit_message: "Generate PNG files for PlantUML diagrams"
+          branch: ${{ github.head_ref }}
