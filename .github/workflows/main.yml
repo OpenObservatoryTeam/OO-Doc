@@ -19,7 +19,7 @@ jobs:
       - name: Generate SVG Diagrams
         uses: holowinski/plantuml-github-action@main
         with:
-          args: -v -tpng ${{steps.getfile.outputs.files}} doc/
+          args: -v -tpng doc/src/*.puml doc/
 
       - name: Push Local Changes
         uses: stefanzweifel/git-auto-commit-action@v4.1.2
